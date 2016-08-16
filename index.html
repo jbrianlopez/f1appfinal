@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+<body>
+  <div id="driversSummary"></div>
+  <div id="driversStart"></div>
+  <div id="driversFinish"></div>
+  <div class="races"></div>
+
+  <!-- <div id="davidRace">
+    <div id="race0">
+      <div id="name0"></div>
+    </div> -->
+    <!-- <div id="race1"><div id="name0"></div></div>
+    <div id="race2"><div id="name1"></div></div>
+    <div id="race3"><div id="name2"></div></div>
+    <div id="race4"><div id="name3"></div></div>
+    <div id="race5"><div id="name4"></div></div>
+    <div id="race6"><div id="name5"></div></div> -->
+    </div>
+  </div>
+</body>
+<script>
+$.ajax({
+  url: 'https://formula1app.herokuapp.com/drivers/perez/',
+}).done(function(data){
+  console.log('bye')
+
+  $('#driversSummary').append("<p>" + "Name: " + data.drivers[0].given_name + " " +
+ data.drivers[0].family_name + "<br>" + "Nationality: " + data.drivers[0].nationality + "<br>" + "Races: " +
+ (data.drivers.length - 1))
+ //
+ //  $('#driversStart').append(data.drivers[0].races[0].Round + "<br>" + data.drivers[0].races[0].Season + "<br>" +
+ //  data.drivers[0].races[0].raceName + "<br>" )
+
+  for (var i = 0; i < (data.drivers.length - 1); i++) {
+    console.log(data.drivers.length - 1)
+    $( "<div><b>" + data.drivers[i].races[0].Season + " " + data.drivers[i].races[0].raceName + " Round " + data.drivers[i].races[0].Round + "</b><br>" + "Grid Position: " + data.drivers[i].races[0].results[0].grid + "<br>"
+    + "Final Position: " + data.drivers[i].races[0].results[0].positionText + "<br>"
+    + "Laps: " + data.drivers[i].races[0].results[0].laps + "<br>"
+    + "Status: " + data.drivers[i].races[0].results[0].status + "<br>"
+    + "Points: " + data.drivers[i].races[0].results[0].points + "<br>"  +
+    "</div>" + "<br>" ).appendTo( "body" )
+
+    // if (data.drivers[i].races[0].results[0].positionText.parseInt() === undefined)
+
+// position: 19,
+// points: 0,
+// positionText: "R",
+// grid: 19,
+// laps: "24",
+// status: "Spun off"
+    // $('#race'+ i).append(data.drivers[i].races[0].Round)
+    // $('#name'+ i).append(data.drivers[i].races[0].raceName)
+  }
+      // David Example
+      // $('#name'+ i).append(data.drivers[i].races[0].raceName)
+  // data.drivers[0].races[0].raceName
+  // var flavors = data.map(d => d.flavor)
+  // var filteredPlain = flavors.filter(x => x == "Plain");
+  console.log(data.drivers[0].races[0].results[0].status)
+  // console.log(flavors);
+  // console.log(filteredPlain);
+})
+</script>
+</html>
