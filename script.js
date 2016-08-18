@@ -1,5 +1,5 @@
 /* global $*/
-
+// $(document).ready(function(){
 $.ajax({
   url: 'https://formula1app.herokuapp.com/drivers/',
 }).done(function(data){
@@ -8,10 +8,9 @@ $.ajax({
   for (var i = 0; i <= (data.drivers.length - 1); i++) {
     console.log(data.drivers.length)
     console.log('huh')
-    $( "<div>" + $('#races').append("<div id='driversSummary'><b><p>" + "Name: " + data.drivers[i].given_name + " " +
+   $('#races').append("<p>" + "Name: " + data.drivers[i].given_name + " " +
  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " +
- (data.drivers[i].races.length - 1)) +
-"</div>" + "<br>" )
+ (data.drivers[i].races.length - 1)) + "<br>"
 // .appendTo( "body" )
 
 }
@@ -25,28 +24,31 @@ $.ajax({
   // console.log(flavors);
   // console.log(filteredPlain);
 })
+// });
 
+// THIS IS FILTER TESTING
+$(document).ready(function(){
+    $("#filter").keyup(function(){
 
-jQuery(document).ready(function($){
+        // Retrieve the input field text and reset the count to zero
+        var filter = $(this).val(), count = 0;
 
-$('.live-search-list div').each(function(){
-$(this).attr('data-search-term', $(this).text().toLowerCase());
-});
+        // Loop through the list
+        $("div p").each(function(){
 
-$('.live-search-box').on('keyudiv', function(){
+            // If the list item does not contain the text phrase fade it out
+            if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                $(this).fadeOut();
 
-var searchTerm = $(this).val().toLowerCase();
+            // Show the list item if the phrase matches and increase the count by 1
+            } else {
+                $(this).show();
+                count++;
+            }
+        });
 
-    $('.live-search-list div').each(function(){
-
-        if ($(this).filter('[data-search-term *= ' + searchTerm + ']').length > 0 || searchTerm.length < 1) {
-            $(this).show();
-        } else {
-            $(this).hide();
-        }
-
+        // Update the count
+        var numberItems = count;
+        $("#filter-count").text("Number of Results = "+count);
     });
-
-});
-
 });
