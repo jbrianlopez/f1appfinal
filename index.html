@@ -5,27 +5,28 @@
   <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link type="text/css" rel="stylesheet" href="./style.css">
+    <script type='text/javascript' src='drivers.js'></script>
 </head>
 <body>
+
+    <form id="live-search" action="" class="styled" method="post">
+      <fieldset>
+        <input type="text" class="text-input" id="filter" value="" />
+        <span id="filter-count"></span>
+      </fieldset>
+    </form>
+
+     <!-- <div id="races"></div> -->
+
   <div id="driversSummary"></div>
   <div id="driversStart"></div>
   <div id="driversFinish"></div>
   <div class="races"></div>
 
-  <!-- <div id="davidRace">
-    <div id="race0">
-      <div id="name0"></div>
-    </div> -->
-    <!-- <div id="race1"><div id="name0"></div></div>
-    <div id="race2"><div id="name1"></div></div>
-    <div id="race3"><div id="name2"></div></div>
-    <div id="race4"><div id="name3"></div></div>
-    <div id="race5"><div id="name4"></div></div>
-    <div id="race6"><div id="name5"></div></div> -->
     </div>
   </div>
 </body>
-<script>
+<!-- <script>
 $.ajax({
   url: 'https://formula1app.herokuapp.com/drivers/haryanto',
 }).done(function(data){
@@ -67,5 +68,5 @@ $.ajax({
   // console.log(flavors);
   // console.log(filteredPlain);
 })
-</script>
+</script> -->
 </html>

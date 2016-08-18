@@ -7,3 +7,16 @@
   font-family: Simpson;
   border: 3px black solid;
 }
+
+div {
+  height: auto;
+  padding: 5px;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+height: 0;
+}
