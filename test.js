@@ -14,14 +14,14 @@ $.ajax({
      if (i%2===0) {
     console.log(data.drivers.length)
     console.log("first " + i)
-   $('#races').append( "Name: " + data.drivers[i].given_name + " " +
+   $('#races').append("<div>" + "Name: " + data.drivers[i].given_name + " " +
  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " +
  (data.drivers[i].races.length - 1)+ "<br>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/index.html?driver=" + data.drivers[i].driverId + "'>link</a>" + "</div>")
 // .appendTo( "body" )
 }
   else {
     console.log("then " + i)
-    $('#racess').append("Name: " + data.drivers[i].given_name + " " +
+    $('#racess').append("<div>" + "Name: " + data.drivers[i].given_name + " " +
   data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " +
   (data.drivers[i].races.length - 1)+ "<br>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/index.html?driver=" + data.drivers[i].driverId + "'>link</a>" + "</div>")
   }
@@ -53,7 +53,7 @@ $(document).ready(function(){
         var filter = $(this).val(), count = 0;
 
         // Loop through the list
-        $("div div div").each(function(){
+        $("div div").each(function(){
 
             // If the list item does not contain the text phrase fade it out
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {
