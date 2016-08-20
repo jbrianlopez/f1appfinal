@@ -17,16 +17,19 @@ $.ajax({
      if (i%2===0) {
     console.log(data.drivers.length)
     console.log("first " + i)
-   $('#races').append("<div>" + "Name: " + data.drivers[i].given_name + " " +
- data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " +
- (data.drivers[i].races.length - 1)+ "<br>" + "<a href=" + window.location.href + "driver=" + data.drivers[i].driverId + ">link</a>" + "</div>")
+   $('#races').append("<div>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/drivers.html?driver=" + data.drivers[i].driverId + "'>" + "Name: " + data.drivers[i].given_name + " " +
+ data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " + (data.drivers[i].races.length - 1) + "<br>" + "</a>" + "</div>")
+
+  $('.dropdown-menu').append("<li>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/drivers.html?driver=" + data.drivers[i].driverId + "'>" + data.drivers[i].given_name + " " + data.drivers[i].family_name + "</a>" + "</li>")
+  // <li><a href="#">HTML</a></li>
 // .appendTo( "body" )
 }
   else {
     console.log("then " + i)
-    $('#racess').append("<div>" + "Name: " + data.drivers[i].given_name + " " +
-  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " +
-  (data.drivers[i].races.length - 1)+ "<br>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/drivers.html?driver=" + data.drivers[i].driverId + "'>link</a>" + "</div>")
+    $('#racess').append("<div>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/drivers.html?driver=" + data.drivers[i].driverId + "'>" + "Name: " + data.drivers[i].given_name + " " +
+  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " + (data.drivers[i].races.length - 1) + "<br>" + "</a>" + "</div>")
+
+    $('.dropdown-menu').append("<li>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/drivers.html?driver=" + data.drivers[i].driverId + "'>" + data.drivers[i].given_name + " " + data.drivers[i].family_name + "</a>" + "</li>")
   }
 }
 

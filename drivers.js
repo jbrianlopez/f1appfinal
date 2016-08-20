@@ -14,10 +14,12 @@ $.ajax({
   url: 'https://formula1app.herokuapp.com/drivers/' + driverchoice,
 }).done(function(data){
   console.log('bye')
+ console.log(data.drivers[0].races.length)
+ console.log(data.drivers[0].given_name)
 
-  $('#driversSummary').append("<p>" + "Name: " + data.drivers[0].given_name + " " +
+  $('#driversSummary').append("<h3>" + "Name: " + data.drivers[0].given_name + " " +
  data.drivers[0].family_name + "<br>" + "Nationality: " + data.drivers[0].nationality + "<br>" + "Races: " +
- (data.drivers[0].races.length - 1))
+ (data.drivers[0].races.length - 1) + "</h3>")
  //
 
 
@@ -44,7 +46,7 @@ $(document).ready(function(){
         var filter = $(this).val(), count = 0;
 
         // Loop through the list
-        $("div").each(function(){
+        $("div div").each(function(){
 
             // If the list item does not contain the text phrase fade it out
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {

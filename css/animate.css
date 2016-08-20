@@ -9,6 +9,42 @@
  */
 
 /*STYLING*/
+
+strong {
+  color: white;
+  font-size: 1.5em;
+}
+
+p {
+  color: white;
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+a, a:link, a:visited, a:active {
+  color: inherit;
+}
+
+a:hover {
+  color: white;
+}
+
+body {
+  background-image: url(f1background.jpg);
+}
+
+
+#races div {
+  color: white;
+  margin: 20px;
+}
+
+#racess div {
+  color: white;
+  margin: 20px;
+}
+
+
 #logo {
   height: auto;
   width: 50%;
@@ -69,13 +105,7 @@ div {
   padding: 5px;
 }
 
-body {
-  margin: 0;
-}
 
-p {
-height: 0;
-}
 
 
  .no-js #loader { display: none;  }
@@ -89,10 +119,10 @@ height: 0;
  	z-index: 9999;
  	background: url(images/Preloader_3.gif) center no-repeat #fff;
  }
- #races {
+ /*#races {
    /*border: 2px black solid;*/
-   background-color: lightblue;
- }
+   /*background-color: lightblue;*/
+ /*}*/
 
 .animated {
   -webkit-animation-duration: 1s;
