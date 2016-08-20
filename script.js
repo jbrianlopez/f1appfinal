@@ -1,31 +1,49 @@
 /* global $*/
 // $(document).ready(function(){
+// // Wait for window load
+// $(window).on("load", function() {
+//   // Animate loader off screen
+//   $(".se-pre-con").fadeOut("slow");;
+// });
+
 $.ajax({
   url: 'https://formula1app.herokuapp.com/drivers/',
 }).done(function(data){
   console.log('bye')
-
   for (var i = 0; i <= (data.drivers.length - 1); i++) {
+     if (i%2===0) {
     console.log(data.drivers.length)
-    console.log('huh')
+    console.log("first " + i)
    $('#races').append("<div>" + "Name: " + data.drivers[i].given_name + " " +
  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " +
  (data.drivers[i].races.length - 1)+ "<br>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/index.html?driver=" + data.drivers[i].driverId + "'>link</a>" + "</div>")
 // .appendTo( "body" )
-
+}
+  else {
+    console.log("then " + i)
+    $('#racess').append("<div>" + "Name: " + data.drivers[i].given_name + " " +
+  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " +
+  (data.drivers[i].races.length - 1)+ "<br>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/index.html?driver=" + data.drivers[i].driverId + "'>link</a>" + "</div>")
+  }
 }
 
-      // David Example
-      // $('#name'+ i).append(data.drivers[i].races[0].raceName)
-  // data.drivers[0].races[0].raceName
-  // var flavors = data.map(d => d.flavor)
-  // var filteredPlain = flavors.filter(x => x == "Plain");
   console.log(data.drivers[0].races[0].results[0].status)
-  // console.log(flavors);
-  // console.log(filteredPlain);
+
 })
 // });
 
+// LOADING SCREEN
+$( document ).ajaxComplete(function() {
+    $(".se-pre-con").fadeOut("slow");;
+  $( "h4" ).text( "Triggered ajaxComplete handler." );
+  $('#races').addClass("animated bounceInLeft data-wow-duration='2s' data-wow-delay='3.6s'");
+  $('#racess').addClass("animated bounceInRight data-wow-duration='2s' data-wow-delay='3.6s'");
+});
+//
+// jQuery(document).ready(function($) {
+// $('#races').addClass('animated bounceInLeft');
+// })
+//
 
 // THIS IS FILTER TESTING
 $(document).ready(function(){
@@ -35,7 +53,7 @@ $(document).ready(function(){
         var filter = $(this).val(), count = 0;
 
         // Loop through the list
-        $("div div").each(function(){
+        $("div div div").each(function(){
 
             // If the list item does not contain the text phrase fade it out
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {
@@ -45,6 +63,7 @@ $(document).ready(function(){
             } else {
                 $(this).show();
                 count++;
+
             }
 
         });
@@ -60,56 +79,494 @@ $(document).ready(function(){
     });
 });
 
-//
-// // TESTING FOR API CALLS
-// $(document).ready(
-//   function () {
-//     function getParameterByName (name, url) {
-//       if (!url) url = window.location.href
-//       name = name.replace(/[\[\]]/g, '\\$&')
-//       var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)')
-//       var results = regex.exec(url)
-//       if (!results) return null
-//       if (!results[2]) return ''
-//       return decodeURIComponent(results[2].replace(/\+/g, ' '))
-//     }
-//
-//     var serverURL = 'http://localhost:3000/'
-//     var currentUser = null || window.localStorage.id
-//     var id = getParameterByName('id')
-//
-//
-//     $('#scroll').scrollIndicator({
-//
-//       // Support for IE8 and IE9 browsers.
-//       ieSupport: true,
-//       // Re-calculate values on window.resize event.
-//       bindResize: true,
-//       // React to changes in DOM model.
-//       bindDOMSubtreeModified: false,
-//       // Enable smooth animation
-//       animated: true,
-//       // Use of progress element. Disable for CSS3 animation.
-//       html5: false
-//     })
-//
-//     // if (id) then run this
-//     if (id) {
-//       $.ajax({
-//         type: 'GET',
-//         url: serverURL + 'drivers/' + id,
-//         dataType: 'json'
-//       }).done(function (data) {
-//         console.log(data)
-//         $('#name').append(data.drivers[i].given_name)
-//         $('#article-body').append(data.article.html)
-//         $('#source').append('<a href="' + data.article.url + '">SOURCE</a>')
-//         data.article.tldr.forEach(function (tldr) {
-//           $('#tldr').append('<li>' + tldr.summary + '</li>')
-//         })
-//         data.article.topics.forEach(function (topic) {
-//           $('#topics').append('<li>' + topic.topic.toUpperCase() + '</li>')
-//         })
-//       })
-//     }
-//   })
+
+// THIS IS JUST ANIMATE JS
+jQuery(document).ready(function($) {
+
+
+	//animate effect
+	$(".e_flash").hover(
+		function () {
+		$(this).addClass("animated flash");
+		},
+		function () {
+		$(this).removeClass("animated flash");
+		}
+	);
+	$(".e_bounce").hover(
+		function () {
+		$(this).addClass("animated bounce");
+		},
+		function () {
+		$(this).removeClass("animated bounce");
+		}
+	);
+
+	$(".e_shake").hover(
+		function () {
+		$(this).addClass("animated shake");
+		},
+		function () {
+		$(this).removeClass("animated shake");
+		}
+	);
+	$(".e_tada").hover(
+		function () {
+		$(this).addClass("animated tada");
+		},
+		function () {
+		$(this).removeClass("animated tada");
+		}
+	);
+	$(".e_swing").hover(
+		function () {
+		$(this).addClass("animated swing");
+		},
+		function () {
+		$(this).removeClass("animated swing");
+		}
+	);
+	$(".e_wobble").hover(
+		function () {
+		$(this).addClass("animated wobble");
+		},
+		function () {
+		$(this).removeClass("animated wobble");
+		}
+	);
+	$(".e_wiggle").hover(
+		function () {
+		$(this).addClass("animated wiggle");
+		},
+		function () {
+		$(this).removeClass("animated wiggle");
+		}
+	);
+	$(".e_pulse").hover(
+		function () {
+		$(this).addClass("animated pulse");
+		},
+		function () {
+		$(this).removeClass("animated pulse");
+		}
+	);
+
+
+	$(".e_flip").hover(
+		function () {
+		$(this).addClass("animated flip");
+		},
+		function () {
+		$(this).removeClass("animated flip");
+		}
+	);
+	$(".e_flipInX").hover(
+		function () {
+		$(this).addClass("animated flipInX");
+		},
+		function () {
+		$(this).removeClass("animated flipInX");
+		}
+	);
+	$(".e_flipOutX").hover(
+		function () {
+		$(this).addClass("animated flipOutX");
+		},
+		function () {
+		$(this).removeClass("animated flipOutX");
+		}
+	);
+	$(".e_flipInY").hover(
+		function () {
+		$(this).addClass("animated flipInY");
+		},
+		function () {
+		$(this).removeClass("animated flipInY");
+		}
+	);
+	$(".e_flipOutY").hover(
+		function () {
+		$(this).addClass("animated flipOutY");
+		},
+		function () {
+		$(this).removeClass("animated flipOutY");
+		}
+	);
+
+	//Fading entrances
+	$(".e_fadeIn").hover(
+		function () {
+		$(this).addClass("animated fadeIn");
+		},
+		function () {
+		$(this).removeClass("animated fadeIn");
+		}
+	);
+	$(".e_fadeInUp").hover(
+		function () {
+		$(this).addClass("animated fadeInUp");
+		},
+		function () {
+		$(this).removeClass("animated fadeInUp");
+		}
+	);
+	$(".e_fadeInDown").hover(
+		function () {
+		$(this).addClass("animated fadeInDown");
+		},
+		function () {
+		$(this).removeClass("animated fadeInDown");
+		}
+	);
+	$(".e_fadeInLeft").hover(
+		function () {
+		$(this).addClass("animated fadeInLeft");
+		},
+		function () {
+		$(this).removeClass("animated fadeInLeft");
+		}
+	);
+	$(".e_fadeInRight").hover(
+		function () {
+		$(this).addClass("animated fadeInRight");
+		},
+		function () {
+		$(this).removeClass("animated fadeInRight");
+		}
+	);
+	$(".e_fadeInUpBig").hover(
+		function () {
+		$(this).addClass("animated fadeInUpBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeInUpBig");
+		}
+	);
+	$(".e_fadeInUpBig").hover(
+		function () {
+		$(this).addClass("animated fadeInUpBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeInUpBig");
+		}
+	);
+	$(".e_fadeInDownBig").hover(
+		function () {
+		$(this).addClass("animated fadeInDownBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeInDownBig");
+		}
+	);
+	$(".e_fadeInLeftBig").hover(
+		function () {
+		$(this).addClass("animated fadeInLeftBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeInLeftBig");
+		}
+	);
+	$(".e_fadeInRightBig").hover(
+		function () {
+		$(this).addClass("animated fadeInRightBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeInRightBig");
+		}
+	);
+
+
+	//Fading exits
+	$(".e_fadeOut").hover(
+		function () {
+		$(this).addClass("animated fadeOut");
+		},
+		function () {
+		$(this).removeClass("animated fadeOut");
+		}
+	);
+	$(".e_fadeOutUp").hover(
+		function () {
+		$(this).addClass("animated fadeOutUp");
+		},
+		function () {
+		$(this).removeClass("animated fadeOutUp");
+		}
+	);
+	$(".e_fadeOutDown").hover(
+		function () {
+		$(this).addClass("animated fadeOutDown");
+		},
+		function () {
+		$(this).removeClass("animated fadeOutDown");
+		}
+	);
+	$(".e_fadeOutLeft").hover(
+		function () {
+		$(this).addClass("animated fadeOutLeft");
+		},
+		function () {
+		$(this).removeClass("animated fadeOutLeft");
+		}
+	);
+	$(".e_fadeOutRight").hover(
+		function () {
+		$(this).addClass("animated fadeOutRight");
+		},
+		function () {
+		$(this).removeClass("animated fadeOutRight");
+		}
+	);
+	$(".e_fadeOutUpBig").hover(
+		function () {
+		$(this).addClass("animated fadeOutUpBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeOutUpBig");
+		}
+	);
+	$(".e_fadeOutDownBig").hover(
+		function () {
+		$(this).addClass("animated fadeOutDownBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeOutDownBig");
+		}
+	);
+	$(".e_fadeOutLeftBig").hover(
+		function () {
+		$(this).addClass("animated fadeOutLeftBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeOutLeftBig");
+		}
+	);
+	$(".e_fadeOutRightBig").hover(
+		function () {
+		$(this).addClass("animated fadeOutRightBig");
+		},
+		function () {
+		$(this).removeClass("animated fadeOutRightBig");
+		}
+	);
+
+
+	//Bouncing entrances
+	$(".e_bounceIn").hover(
+		function () {
+		$(this).addClass("animated bounceIn");
+		},
+		function () {
+		$(this).removeClass("animated bounceIn");
+		}
+	);
+	$(".e_bounceInDown").hover(
+		function () {
+		$(this).addClass("animated bounceInDown");
+		},
+		function () {
+		$(this).removeClass("animated bounceInDown");
+		}
+	);
+	$(".e_bounceInUp").hover(
+		function () {
+		$(this).addClass("animated bounceInUp");
+		},
+		function () {
+		$(this).removeClass("animated bounceInUp");
+		}
+	);
+	$(".e_bounceInLeft").hover(
+		function () {
+		$(this).addClass("animated bounceInLeft");
+		},
+		function () {
+		$(this).removeClass("animated bounceInLeft");
+		}
+	);
+	$(".e_bounceInRight").hover(
+		function () {
+		$(this).addClass("animated bounceInRight");
+		},
+		function () {
+		$(this).removeClass("animated bounceInRight");
+		}
+	);
+
+
+	//Bouncing exits
+	$(".e_bounceOut").hover(
+		function () {
+		$(this).addClass("animated bounceOut");
+		},
+		function () {
+		$(this).removeClass("animated bounceOut");
+		}
+	);
+	$(".e_bounceOutDown").hover(
+		function () {
+		$(this).addClass("animated bounceOutDown");
+		},
+		function () {
+		$(this).removeClass("animated bounceOutDown");
+		}
+	);
+	$(".e_bounceOutUp").hover(
+		function () {
+		$(this).addClass("animated bounceOutUp");
+		},
+		function () {
+		$(this).removeClass("animated bounceOutUp");
+		}
+	);
+	$(".e_bounceOutLeft").hover(
+		function () {
+		$(this).addClass("animated bounceOutLeft");
+		},
+		function () {
+		$(this).removeClass("animated bounceOutLeft");
+		}
+	);
+	$(".e_bounceOutRight").hover(
+		function () {
+		$(this).addClass("animated bounceOutRight");
+		},
+		function () {
+		$(this).removeClass("animated bounceOutRight");
+		}
+	);
+
+
+	//Rotating entrances
+	$(".e_rotateIn").hover(
+		function () {
+		$(this).addClass("animated rotateIn");
+		},
+		function () {
+		$(this).removeClass("animated rotateIn");
+		}
+	);
+	$(".e_rotateInDownLeft").hover(
+		function () {
+		$(this).addClass("animated rotateInDownLeft");
+		},
+		function () {
+		$(this).removeClass("animated rotateInDownLeft");
+		}
+	);
+	$(".e_rotateInDownRight").hover(
+		function () {
+		$(this).addClass("animated rotateInDownRight");
+		},
+		function () {
+		$(this).removeClass("animated rotateInDownRight");
+		}
+	);
+	$(".e_rotateInUpRight").hover(
+		function () {
+		$(this).addClass("animated rotateInUpRight");
+		},
+		function () {
+		$(this).removeClass("animated rotateInUpRight");
+		}
+	);
+	$(".e_rotateInUpLeft").hover(
+		function () {
+		$(this).addClass("animated rotateInUpLeft");
+		},
+		function () {
+		$(this).removeClass("animated rotateInUpLeft");
+		}
+	);
+
+
+	//Rotating exits
+	$(".e_rotateOut").hover(
+		function () {
+		$(this).addClass("animated rotateOut");
+		},
+		function () {
+		$(this).removeClass("animated rotateOut");
+		}
+	);
+	$(".e_rotateOutDownLeft").hover(
+		function () {
+		$(this).addClass("animated rotateOutDownLeft");
+		},
+		function () {
+		$(this).removeClass("animated rotateOutDownLeft");
+		}
+	);
+	$(".e_rotateOutDownRight").hover(
+		function () {
+		$(this).addClass("animated rotateOutDownRight");
+		},
+		function () {
+		$(this).removeClass("animated rotateOutDownRight");
+		}
+	);
+	$(".e_rotateOutUpLeft").hover(
+		function () {
+		$(this).addClass("animated rotateOutUpLeft");
+		},
+		function () {
+		$(this).removeClass("animated rotateOutUpLeft");
+		}
+	);
+	$(".e_rotateOutUpRight").hover(
+		function () {
+		$(this).addClass("animated rotateOutUpRight");
+		},
+		function () {
+		$(this).removeClass("animated rotateOutUpRight");
+		}
+	);
+
+
+	//Lightspeed
+	$(".e_lightSpeedIn").hover(
+		function () {
+		$(this).addClass("animated lightSpeedIn");
+		},
+		function () {
+		$(this).removeClass("animated lightSpeedIn");
+		}
+	);
+	$(".e_lightSpeedOut").hover(
+		function () {
+		$(this).addClass("animated lightSpeedOut");
+		},
+		function () {
+		$(this).removeClass("animated lightSpeedOut");
+		}
+	);
+
+	//specials
+	$(".e_hinge").hover(
+		function () {
+		$(this).addClass("animated hinge");
+		},
+		function () {
+		$(this).removeClass("animated hinge");
+		}
+	);
+	$(".e_rollIn").hover(
+		function () {
+		$(this).addClass("animated rollIn");
+		},
+		function () {
+		$(this).removeClass("animated rollIn");
+		}
+	);
+	$(".e_rollOut").hover(
+		function () {
+		$(this).addClass("animated rollOut");
+		},
+		function () {
+		$(this).removeClass("animated rollOut");
+		}
+	);
+
+
+
+});

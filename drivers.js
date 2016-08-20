@@ -1,5 +1,13 @@
 /* global $*/
 
+$( document ).ajaxComplete(function() {
+    $(".se-pre-con").fadeOut("slow");
+  $('#results').addClass("animated bounceInUp data-wow-duration='2s' data-wow-delay='3.6s'");
+});
+
+
+// AJAX RESULTS LOGIC
+$(document).ready(function(){
 var driverchoice = window.location.search.split('=')[1];
 
 $.ajax({
@@ -11,35 +19,21 @@ $.ajax({
  data.drivers[0].family_name + "<br>" + "Nationality: " + data.drivers[0].nationality + "<br>" + "Races: " +
  (data.drivers[0].races.length - 1))
  //
- //  $('#driversStart').append(data.drivers[0].races[0].Round + "<br>" + data.drivers[0].races[0].Season + "<br>" +
- //  data.drivers[0].races[0].raceName + "<br>" )
+
 
   for (var i = 0; i < (data.drivers[0].races.length - 1); i++) {
     console.log(data.drivers[0].races.length - 1)
-    $( "<div><strong>" + data.drivers[0].races[i].Season + " " + data.drivers[0].races[i].raceName + " Round " + data.drivers[0].races[i].Round + "<p>" + "</strong>" + "Grid Position: " + data.drivers[0].races[i].results[0].grid + "<p>"
+    $( "<div class='col-lg-6'><strong>" + data.drivers[0].races[i].Season + " " + data.drivers[0].races[i].raceName + " Round " + data.drivers[0].races[i].Round + "<p>" + "</strong>" + "Grid Position: " + data.drivers[0].races[i].results[0].grid + "<p>"
     + "Final Position: " + data.drivers[0].races[i].results[0].positionText + "<p>"
     + "Laps: " + data.drivers[0].races[i].results[0].laps + "<p>"
     + "Status: " + data.drivers[0].races[i].results[0].status + "<p>"
     + "Points: " + data.drivers[0].races[i].results[0].points + "<p>"  +
     "</div>" ).appendTo( ".races" )
 
-    // if (data.drivers[i].races[0].results[0].positionText.parseInt() === undefined)
-
-// position: 19,
-// points: 0,
-// positionText: "R",
-// grid: 19,
-// laps: "24",
-// status: "Spun off"
-    // $('#race'+ i).append(data.drivers[i].races[0].Round)
-    // $('#name'+ i).append(data.drivers[i].races[0].raceName)
   }
-      // David Example
-      // $('#name'+ i).append(data.drivers[i].races[0].raceName)
-  // data.drivers[0].races[0].raceName
-  // var flavors = data.map(d => d.flavor)
-  // var filteredPlain = flavors.filter(x => x == "Plain");
+
   console.log(data.drivers[0].races[0].results[0].status)
+})
 })
 
 // THIS IS FILTER TESTING
@@ -67,6 +61,9 @@ $(document).ready(function(){
         var numberItems = count;
            if(($(this).val().length) === 0) {
              $('#filter-count').text("");
+
+               $(".se-pre-con").fadeOut("slow");
+
            }
            else {
         $("#filter-count").text("Number of Results = "+count);

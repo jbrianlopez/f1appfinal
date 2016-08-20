@@ -1,12 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Document</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="./style.css">
-    <script type='text/javascript' src='drivers.js'></script>
-    <!-- Latest compiled and minified CSS -->
+  <meta charset="utf-8">
+  <title>F1 App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script type='text/javascript' src='script.js'></script>
+
+
+<link rel="stylesheet" href="css/animate.css">
+
+  <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- Optional theme -->
@@ -16,65 +19,52 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
+  <div class="se-pre-con"></div>
 
-    <form id="live-search" action="" class="styled" method="post">
-      <fieldset>
-        <input type="text" class="text-input" id="filter" value="" />
-        <span id="filter-count"></span>
-      </fieldset>
-    </form>
+  <form id="live-search" action="" class="styled" method="post">
+    <fieldset>
+      <input type="text" class="text-input" id="filter" value="" />
+      <span id="filter-count"></span>
+    </fieldset>
+  </form>
+<h4>This is a </n> Test </h4>
+   <!-- <div id="races"></div> -->
+<br>
+<br>
+<br>
 
-     <!-- <div id="races"></div> -->
-
-  <div id="driversSummary"></div>
-  <div id="driversStart"></div>
-  <div id="driversFinish"></div>
-  <div class="races"></div>
-
-    </div>
-  </div>
-</body>
 <!-- <script>
-$.ajax({
-  url: 'https://formula1app.herokuapp.com/drivers/haryanto',
-}).done(function(data){
-  console.log('bye')
 
-  $('#driversSummary').append("<p>" + "Name: " + data.drivers[0].given_name + " " +
- data.drivers[0].family_name + "<br>" + "Nationality: " + data.drivers[0].nationality + "<br>" + "Races: " +
- (data.drivers[0].races.length - 1))
- //
- //  $('#driversStart').append(data.drivers[0].races[0].Round + "<br>" + data.drivers[0].races[0].Season + "<br>" +
- //  data.drivers[0].races[0].raceName + "<br>" )
+$( document ).ready(function() {
+  $( "p" ).text( "The DOM is now loaded and can be manipulated." );
+});
 
-  for (var i = 0; i < (data.drivers[0].races.length - 1); i++) {
-    console.log(data.drivers[0].races.length - 1)
-    $( "<div><b>" + data.drivers[0].races[i].Season + " " + data.drivers[0].races[1].raceName + " Round " + data.drivers[0].races[i].Round + "</b><br>" + "Grid Position: " + data.drivers[0].races[i].results[0].grid + "<br>"
-    + "Final Position: " + data.drivers[0].races[i].results[0].positionText + "<br>"
-    + "Laps: " + data.drivers[0].races[i].results[0].laps + "<br>"
-    + "Status: " + data.drivers[0].races[i].results[0].status + "<br>"
-    + "Points: " + data.drivers[0].races[i].results[0].points + "<br>"  +
-    "</div>" + "<br>" ).appendTo( "body" )
-
-    // if (data.drivers[i].races[0].results[0].positionText.parseInt() === undefined)
-
-// position: 19,
-// points: 0,
-// positionText: "R",
-// grid: 19,
-// laps: "24",
-// status: "Spun off"
-    // $('#race'+ i).append(data.drivers[i].races[0].Round)
-    // $('#name'+ i).append(data.drivers[i].races[0].raceName)
-  }
-      // David Example
-      // $('#name'+ i).append(data.drivers[i].races[0].raceName)
-  // data.drivers[0].races[0].raceName
-  // var flavors = data.map(d => d.flavor)
-  // var filteredPlain = flavors.filter(x => x == "Plain");
-  console.log(data.drivers[0].races[0].results[0].status)
-  // console.log(flavors);
-  // console.log(filteredPlain);
-})
+$( window ).on("load", function() {
+  $( "h3" ).text( "The Page is now loaded and can be manipulated." );
+  });
 </script> -->
+
+<div>
+      <!-- <div class="wow bounceInLeft" data-wow-duration="2s" data-wow-delay="2.6s"> -->
+      <div id="races" class="col-lg-6"></div>
+      <div id="racess" class="col-lg-6"></div>
+      <!-- <div id="races" class="wow bounceInLeft" data-wow-duration="2s" data-wow-delay="1.6s"></div>
+    </div> -->
+</div>
+</body>
+
+</html>
+<!--
+        <div id="racess" class="wow bounceInRight" data-wow-duration="2s" data-wow-delay="1.6s"></div>
+      </div> -->
+<!--
+
+</div>
+</div>
+
+
+
+</body>
+
+
 </html>

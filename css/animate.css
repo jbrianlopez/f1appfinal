@@ -8,6 +8,60 @@
  * Copyright (c) 2016 Daniel Eden
  */
 
+/*STYLING*/
+ul.nav {
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+ul.nav li {
+    display: inline-block;
+    float: none;
+}
+
+/*.container-fluid {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}*/
+
+/*.navbar navbar-default{
+  overflow-x: scroll;
+  overflow-y: hidden;
+      display: inline-block;
+}
+
+
+.navbar-header {
+border: thin solid black;
+overflow-x: scroll;
+overflow-y: hidden;
+
+}*/
+
+
+#driversSummary  {
+  height: 110px;
+  background-color: #fcd14e;
+  text-align: center;
+  display: flex;
+  font-family: Simpson;
+  border: 3px black solid;
+}
+
+div {
+  height: auto;
+  padding: 5px;
+}
+
+body {
+  margin: 0;
+}
+
+p {
+height: 0;
+}
+
+
  .no-js #loader { display: none;  }
  .js #loader { display: block; position: absolute; left: 100px; top: 0; }
  .se-pre-con {
