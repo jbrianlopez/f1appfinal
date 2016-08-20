@@ -4,10 +4,16 @@
   "description": "",
   "main": "drivers.js",
   "dependencies": {
-    "wow.js": "^1.2.1"
+    "wow.js": "^1.2.1",
+    "express": "^4.14.0"
+  },
+  "engines": {
+    "node": "6.2.2",
+    "npm": "3.10.5"
   },
   "devDependencies": {},
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
