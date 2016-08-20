@@ -8,9 +8,9 @@ $.ajax({
   for (var i = 0; i <= (data.drivers.length - 1); i++) {
     console.log(data.drivers.length)
     console.log('huh')
-   $('#races').append("<p>" + "Name: " + data.drivers[i].given_name + " " +
+   $('#races').append("<div>" + "Name: " + data.drivers[i].given_name + " " +
  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " +
- (data.drivers[i].races.length - 1)) + "<br>"
+ (data.drivers[i].races.length - 1)+ "<br>" + "<a href='file:///Users/brianlopez/Desktop/f1/f1plain/index.html?driver=" + data.drivers[i].driverId + "'>link</a>" + "</div>")
 // .appendTo( "body" )
 
 }
@@ -35,7 +35,7 @@ $(document).ready(function(){
         var filter = $(this).val(), count = 0;
 
         // Loop through the list
-        $("div p").each(function(){
+        $("div div").each(function(){
 
             // If the list item does not contain the text phrase fade it out
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {
@@ -46,10 +46,70 @@ $(document).ready(function(){
                 $(this).show();
                 count++;
             }
+
         });
 
         // Update the count
         var numberItems = count;
+           if(($(this).val().length) === 0) {
+             $('#filter-count').text("");
+           }
+           else {
         $("#filter-count").text("Number of Results = "+count);
+      }
     });
 });
+
+//
+// // TESTING FOR API CALLS
+// $(document).ready(
+//   function () {
+//     function getParameterByName (name, url) {
+//       if (!url) url = window.location.href
+//       name = name.replace(/[\[\]]/g, '\\$&')
+//       var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)')
+//       var results = regex.exec(url)
+//       if (!results) return null
+//       if (!results[2]) return ''
+//       return decodeURIComponent(results[2].replace(/\+/g, ' '))
+//     }
+//
+//     var serverURL = 'http://localhost:3000/'
+//     var currentUser = null || window.localStorage.id
+//     var id = getParameterByName('id')
+//
+//
+//     $('#scroll').scrollIndicator({
+//
+//       // Support for IE8 and IE9 browsers.
+//       ieSupport: true,
+//       // Re-calculate values on window.resize event.
+//       bindResize: true,
+//       // React to changes in DOM model.
+//       bindDOMSubtreeModified: false,
+//       // Enable smooth animation
+//       animated: true,
+//       // Use of progress element. Disable for CSS3 animation.
+//       html5: false
+//     })
+//
+//     // if (id) then run this
+//     if (id) {
+//       $.ajax({
+//         type: 'GET',
+//         url: serverURL + 'drivers/' + id,
+//         dataType: 'json'
+//       }).done(function (data) {
+//         console.log(data)
+//         $('#name').append(data.drivers[i].given_name)
+//         $('#article-body').append(data.article.html)
+//         $('#source').append('<a href="' + data.article.url + '">SOURCE</a>')
+//         data.article.tldr.forEach(function (tldr) {
+//           $('#tldr').append('<li>' + tldr.summary + '</li>')
+//         })
+//         data.article.topics.forEach(function (topic) {
+//           $('#topics').append('<li>' + topic.topic.toUpperCase() + '</li>')
+//         })
+//       })
+//     }
+//   })

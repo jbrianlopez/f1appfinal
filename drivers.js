@@ -1,7 +1,9 @@
 /* global $*/
 
+var driverchoice = window.location.search.split('=')[1];
+
 $.ajax({
-  url: 'https://formula1app.herokuapp.com/drivers/alonso',
+  url: 'https://formula1app.herokuapp.com/drivers/' + driverchoice,
 }).done(function(data){
   console.log('bye')
 
@@ -63,6 +65,11 @@ $(document).ready(function(){
 
         // Update the count
         var numberItems = count;
+           if(($(this).val().length) === 0) {
+             $('#filter-count').text("");
+           }
+           else {
         $("#filter-count").text("Number of Results = "+count);
+      }
     });
 });

@@ -1,0 +1,15 @@
+{
+  "name": "f1plain",
+  "version": "1.0.0",
+  "description": "",
+  "main": "drivers.js",
+  "dependencies": {
+    "wow.js": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
