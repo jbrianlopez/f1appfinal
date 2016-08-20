@@ -9,6 +9,22 @@
  */
 
 /*STYLING*/
+#logo {
+  height: auto;
+  width: 50%;
+  /*margin-top: -40px;*/
+}
+
+.vertical-align {
+    display: flex;
+    align-items: center;
+
+}
+
+div .form-group {
+  display: block;
+}
+
 ul.nav {
     white-space: nowrap;
     overflow-x: auto;
