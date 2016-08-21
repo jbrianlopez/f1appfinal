@@ -15,10 +15,7 @@ $.ajax({
 
 }
 
-      // David Example
-      // $('#name'+ i).append(data.drivers[i].races[0].raceName)
-  // data.drivers[0].races[0].raceName
-  // var flavors = data.map(d => d.flavor)
+
   // var filteredPlain = flavors.filter(x => x == "Plain");
   console.log(data.drivers[0].races[0].results[0].status)
   // console.log(flavors);

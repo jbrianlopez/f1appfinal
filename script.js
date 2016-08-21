@@ -37,29 +37,25 @@ $.ajax({
 })
 // });
 
-// LOADING SCREEN
+// Loading screen and events after ajax completion
 $( document ).ajaxComplete(function() {
     $(".se-pre-con").fadeOut("slow");;
   $('#races').addClass("animated bounceInLeft data-wow-duration='2s' data-wow-delay='3.6s'");
   $('#racess').addClass("animated bounceInRight data-wow-duration='2s' data-wow-delay='3.6s'");
 });
 //
-// jQuery(document).ready(function($) {
-// $('#races').addClass('animated bounceInLeft');
-// })
-//
 
-// THIS IS FILTER TESTING
+// Live Search Filter
 $(document).ready(function(){
     $("#filter").keyup(function(){
 
         // Retrieve the input field text and reset the count to zero
         var filter = $(this).val(), count = 0;
 
-        // Loop through the list
+        // Loop through
         $("div div div").each(function(){
 
-            // If the list item does not contain the text phrase fade it out
+            // Fade out
             if ($(this).text().search(new RegExp(filter, "i")) < 0) {
                 $(this).fadeOut();
 
@@ -84,7 +80,7 @@ $(document).ready(function(){
 });
 
 
-// THIS IS JUST ANIMATE JS
+// ANIMATE
 jQuery(document).ready(function($) {
 
 

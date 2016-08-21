@@ -17,7 +17,7 @@ $.ajax({
  console.log(data.drivers[0].races.length)
  console.log(data.drivers[0].given_name)
 
-  $('#driversSummary').append("<h3>" + "Name: " + data.drivers[0].given_name + " " +
+  $('#driversSummary').append("Name: " + data.drivers[0].given_name + " " +
  data.drivers[0].family_name + "<br>" + "Nationality: " + data.drivers[0].nationality + "<br>" + "Races: " +
  (data.drivers[0].races.length - 1) + "</h3>")
  //

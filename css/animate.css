@@ -1,14 +1,17 @@
 @charset "UTF-8";
 
-/*!
- * animate.css -http://daneden.me/animate
- * Version - 3.5.1
- * Licensed under the MIT license - http://opensource.org/licenses/MIT
- *
- * Copyright (c) 2016 Daniel Eden
- */
 
-/*STYLING*/
+#search {
+  align: center;
+  padding-top: 20px;
+  margin-left: 180px;
+}
+
+@media(max-width: 600px) {
+  #search {
+    margin-left: 0px;
+  }
+}
 
 strong {
   color: white;
@@ -73,33 +76,15 @@ ul.nav li {
     float: none;
 }
 
-/*.container-fluid {
-  overflow-x: scroll;
-  overflow-y: hidden;
-}*/
-
-/*.navbar navbar-default{
-  overflow-x: scroll;
-  overflow-y: hidden;
-      display: inline-block;
-}
-
-
-.navbar-header {
-border: thin solid black;
-overflow-x: scroll;
-overflow-y: hidden;
-
-}*/
-
 
 #driversSummary  {
-  height: 110px;
+  height: 150px;
   background-color: #fcd14e;
   text-align: center;
   display: flex;
-  font-family: Simpson;
   border: 3px black solid;
+  font-family: 'Bangers', cursive;
+  font-size: 2.2em;
 }
 
 div {

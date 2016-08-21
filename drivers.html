@@ -2,102 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>F1 App</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-    <!-- <link type="text/css" rel="stylesheet" href="./style.css"> -->
-    <script type='text/javascript' src='script.js'></script>
-    <script type='text/javascript' src='drivers.js'></script>
-    <link rel="stylesheet" href="css/animate.css">
-    <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>F1 App</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Bangers" rel="stylesheet">
+  <!-- <link type="text/css" rel="stylesheet" href="./style.css"> -->
+  <script type='text/javascript' src='script.js'></script>
+  <script type='text/javascript' src='drivers.js'></script>
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
 </head>
 <body>
   <nav class="navbar navbar-default">
     <div class="container-fluid">
-      <!-- Brand and toggle get grouped for better mobile display -->
+
       <nav class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+
         <a class="navbar-brand" href="https://f1-app.herokuapp.com/">
-           <img alt="Brand" id="logo" src="./images/logo.png">
-         </a>
+          <img alt="Brand" id="logo" src="./images/logo.png">
+        </a>
       </nav>
-      <nav class="form-group col-lg-4 vertical-align">
-<input type="text" class="form-control" placeholder="Search" id="filter" value="" />
-<span id="filter-count"></span>
-</nav>
-      <!-- Collect the nav links, forms, and other content for toggling -->
-    <!-- <button type="submit" class="btn btn-default">Submit</button> -->
-  </form>
-  <nav class="dropdown pull-right">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Drivers
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-  </ul>
-</nav>
-</div>
+      <nav class="form-group col-lg-4 vertical-align" id="search">
+        <input type="text" class="form-control" placeholder="Search" id="filter" value="" />
+        <span id="filter-count"></span>
+      </nav>
+    </form>
+    <nav class="dropdown pull-right">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Drivers
+        <span class="caret"></span></button>
+        <ul class="dropdown-menu">
+        </ul>
+      </nav>
+    </div>
   </nav>
   <div class="se-pre-con"></div>
 
-     <!-- <div id="races"></div> -->
-
-  <nav id="driversSummary"></nav>
+  <nav id="driversSummary"></nav>
   <div class="races" id="results"></div>
 
 
 </body>
-<!-- <script>
-$.ajax({
-  url: 'https://formula1app.herokuapp.com/drivers/haryanto',
-}).done(function(data){
-  console.log('bye')
-
-  $('#driversSummary').append("<p>" + "Name: " + data.drivers[0].given_name + " " +
- data.drivers[0].family_name + "<br>" + "Nationality: " + data.drivers[0].nationality + "<br>" + "Races: " +
- (data.drivers[0].races.length - 1))
- //
- //  $('#driversStart').append(data.drivers[0].races[0].Round + "<br>" + data.drivers[0].races[0].Season + "<br>" +
- //  data.drivers[0].races[0].raceName + "<br>" )
-
-  for (var i = 0; i < (data.drivers[0].races.length - 1); i++) {
-    console.log(data.drivers[0].races.length - 1)
-    $( "<div><b>" + data.drivers[0].races[i].Season + " " + data.drivers[0].races[1].raceName + " Round " + data.drivers[0].races[i].Round + "</b><br>" + "Grid Position: " + data.drivers[0].races[i].results[0].grid + "<br>"
-    + "Final Position: " + data.drivers[0].races[i].results[0].positionText + "<br>"
-    + "Laps: " + data.drivers[0].races[i].results[0].laps + "<br>"
-    + "Status: " + data.drivers[0].races[i].results[0].status + "<br>"
-    + "Points: " + data.drivers[0].races[i].results[0].points + "<br>"  +
-    "</div>" + "<br>" ).appendTo( "body" )
-
-    // if (data.drivers[i].races[0].results[0].positionText.parseInt() === undefined)
-
-// position: 19,
-// points: 0,
-// positionText: "R",
-// grid: 19,
-// laps: "24",
-// status: "Spun off"
-    // $('#race'+ i).append(data.drivers[i].races[0].Round)
-    // $('#name'+ i).append(data.drivers[i].races[0].raceName)
-  }
-      // David Example
-      // $('#name'+ i).append(data.drivers[i].races[0].raceName)
-  // data.drivers[0].races[0].raceName
-  // var flavors = data.map(d => d.flavor)
-  // var filteredPlain = flavors.filter(x => x == "Plain");
-  console.log(data.drivers[0].races[0].results[0].status)
-  // console.log(flavors);
-  // console.log(filteredPlain);
-})
-</script> -->
 </html>
