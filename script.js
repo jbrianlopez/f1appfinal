@@ -16,8 +16,8 @@ $.ajax({
      if (i%2===0) {
     console.log(data.drivers.length)
     console.log("first " + i)
-   $('#races').append("<div>" + "<a href=" + url + "drivers.html?driver=" + data.drivers[i].driverId + ">" + "Name: " + data.drivers[i].given_name + " " +
- data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " + (data.drivers[i].races.length - 1) + "<br>" + "</a>" + "</div>")
+    $('#races').append("<a href=" + url + "drivers.html?driver=" + data.drivers[i].driverId + ">" + "<div id='boxGrid'>" + "Name: " + data.drivers[i].given_name + " " +
+  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " + (data.drivers[i].races.length - 1) + "<br>" + "</div>" + "</a>")
 
   $('.dropdown-menu').append("<li>" + "<a href=" + url2 + "drivers.html?driver=" + data.drivers[i].driverId + ">" + data.drivers[i].given_name + " " + data.drivers[i].family_name + "</a>" + "</li>")
   // <li><a href="#">HTML</a></li>
@@ -25,8 +25,8 @@ $.ajax({
 }
   else {
     console.log("then " + i)
-    $('#racess').append("<div>" + "<a href=" + url + "drivers.html?driver=" + data.drivers[i].driverId + ">" + "Name: " + data.drivers[i].given_name + " " +
-  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " + (data.drivers[i].races.length - 1) + "<br>" + "</a>" + "</div>")
+    $('#racess').append("<a href=" + url + "drivers.html?driver=" + data.drivers[i].driverId + ">" + "<div id='boxGrid'>" + "Name: " + data.drivers[i].given_name + " " +
+  data.drivers[i].family_name + "<br>" + "Nationality: " + data.drivers[i].nationality + "<br>" + "Races: " + (data.drivers[i].races.length - 1) + "<br>" + "</div>" + "</a>")
 
     $('.dropdown-menu').append("<li>" + "<a href=" + url2 + "drivers.html?driver=" + data.drivers[i].driverId + ">" + data.drivers[i].given_name + " " + data.drivers[i].family_name + "</a>" + "</li>")
   }
